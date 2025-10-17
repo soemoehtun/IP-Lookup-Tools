@@ -38,7 +38,7 @@ document.getElementById("lookupBtn").addEventListener("click", async () => {
         }
 
         // Wait 1500ms (1.5 seconds) between each request to avoid rate limit
-        await delay(600000);
+        await delay(100000);
     }
 
     alert("Done!");

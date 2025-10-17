@@ -1,3 +1,7 @@
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 document.getElementById("lookupBtn").addEventListener("click", async () => {
     const input = document.getElementById("ipInput").value.trim();
     const ips = input.split("\n").map(ip => ip.trim()).filter(ip => ip);
@@ -32,13 +36,10 @@ document.getElementById("lookupBtn").addEventListener("click", async () => {
             row.innerHTML = `<td>${ip}</td><td colspan="7">Error</td>`;
             tbody.appendChild(row);
         }
-    }
-    alert("Done!");
-});
 
-// ===== Export Table to Excel =====
-document.getElementById("exportBtn").addEventListener("click", () => {
-    const table = document.getElementById("resultTable");
-    const wb = XLSX.utils.table_to_book(table, { sheet: "IP Details" });
-    XLSX.writeFile(wb, "IP_Lookup_Result.xlsx");
+        // Wait 1500ms (1.5 seconds) between each request to avoid rate limit
+        await delay(1500);
+    }
+
+    alert("Done!");
 });

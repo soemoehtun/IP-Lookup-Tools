@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IP Lookup Tool</title>
+<link rel="stylesheet" href="style.css">
+
+<!-- SheetJS library for Excel export -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <!-- Header with title left and developer right -->
+    <div class="header">
+        <h1>IP Lookup Tool</h1>
+        <p class="developer">
+            Developed by 
+            <a href="https://bush-ballcap-829.notion.site/Hello-I-m-Soe-Moe-Tun-154ba19866024819b26330566b4b1fa1" target="_blank">
+                Soe Moe Tun
+            </a>
+        </p>
+    </div>
+
+    <!-- Textarea input -->
+    <textarea id="ipInput" placeholder="Enter IP addresses, one per line"></textarea>
+
+    <!-- Buttons aligned left -->
+    <div class="button-group">
+        <button id="lookupBtn">Lookup IPs</button>
+        <button id="exportBtn">Export to Excel</button>
+    </div>
+
+    <!-- Result Table -->
+    <table id="resultTable">
+        <thead>
+            <tr>
+                <th>IP Address</th>
+                <th>ISP</th>
+                <th>Org</th>
+                <th>Country</th>
+                <th>Region</th>
+                <th>City</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

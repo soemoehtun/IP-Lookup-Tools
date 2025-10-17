@@ -2,12 +2,13 @@ document.getElementById("lookupBtn").addEventListener("click", async () => {
     const input = document.getElementById("ipInput").value.trim();
     const ips = input.split("\n").map(ip => ip.trim()).filter(ip => ip);
     const tbody = document.querySelector("#resultTable tbody");
-    tbody.innerHTML = ""; // Clear previous results
+    tbody.innerHTML = "";
 
     for (const ip of ips) {
         try {
-            const res = await fetch(`https://ip-api.com/json/${ip}`);
-            const data = await res.json();
+            const res = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(`http://ip-api.com/json/${ip}`)}`);
+            const json = await res.json();
+            const data = JSON.parse(json.contents);
             const row = document.createElement("tr");
 
             if (data.status === "success") {

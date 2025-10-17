@@ -6,7 +6,7 @@ document.getElementById("lookupBtn").addEventListener("click", async () => {
 
     for (const ip of ips) {
         try {
-            const res = await fetch(`http://ip-api.com/json/${ip}`);
+            const res = await fetch(`https://ip-api.com/json/${ip}`);
             const data = await res.json();
             const row = document.createElement("tr");
 

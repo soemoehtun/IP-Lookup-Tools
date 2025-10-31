@@ -1,3 +1,5 @@
+// (The script.js content remains the same as in your original post)
+
 function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }

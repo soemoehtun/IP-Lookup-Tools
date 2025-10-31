@@ -1,21 +1,22 @@
 /*
-  MODIFIED CSS FILE for use with Bootstrap 5
-  Uses the viewport width unit (vw) to scale the font size
-  for the table content when on mobile, maximizing the fit.
+  STYLE.CSS for the IP Lookup Tool
+  Works with Bootstrap 5.
 */
 
-/* ===== Body & Container Overrides (No change) ===== */
+/* ===== Body & Container Overrides ===== */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
 }
 
 .container {
+    /* Set max-width to control the size on desktop */
     max-width: 900px;
 }
 
-/* ===== Textarea (Input) Overrides (No change) ===== */
+/* ===== Textarea (Input) Overrides ===== */
 textarea#ipInput {
+    /* Set minimum height for comfortable use */
     min-height: 100px; 
     max-height: 250px;
     resize: vertical;
@@ -33,28 +34,30 @@ th, td {
     text-align: center;
 }
 
-/* NEW: Media Query for Aggressive Mobile Table Scaling 
-   Targets screens up to Bootstrap's 'sm' breakpoint (575.98px).
-*/
+/* ===== Global Mobile Font Scaling (Responsive) ===== */
+
+/* Target screens up to 575.98px wide (Bootstrap's 'sm' breakpoint and below) */
 @media (max-width: 575.98px) {
-    /* Apply a proportional font reduction to the entire body text.
-       (e.g., scale body text down to 80% of its normal size)
-    */
+    /* Reduce the base font size for ALL text elements */
     body {
         font-size: 0.8rem; 
     }
     
+    /* FIX: More specific selector to ensure header size is minimized on mobile. 
+       This overrides Bootstrap's defaults in this specific viewport.
+    */
+    .container h3 {
+        font-size: 1.4rem !important; 
+    }
+
     #resultTable {
-        /* CRITICAL CHANGE: Use viewport width (vw) for table font size. 
-           1.5vw means the font size is 1.5% of the viewport's width.
-           This scales the font size dynamically as the user resizes the window,
-           or if they use a very small phone, making it constantly "fit."
-        */
+        /* Use viewport width (vw) for dynamic font scaling on the table.
+           This helps maximize the data displayed without horizontal scrolling. */
         font-size: 1.5vw; 
     }
     
     th, td {
-        /* Reduced padding slightly more to save space */
+        /* Reduced padding for maximum space saving */
         padding: 4px 2px;
     }
 }

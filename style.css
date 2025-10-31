@@ -3,7 +3,7 @@
   Works with Bootstrap 5.
 */
 
-/* ===== Body & Container Overrides ===== */
+/* ===== Body & Container Overrides (Desktop) ===== */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -40,24 +40,31 @@ th, td {
 @media (max-width: 575.98px) {
     /* Reduce the base font size for ALL text elements */
     body {
-        font-size: 2vw; 
+        font-size: 0.8rem; 
     }
     
-    /* FIX: More specific selector to ensure header size is minimized on mobile. 
-       This overrides Bootstrap's defaults in this specific viewport.
-    */
+    /* Ensures header size is minimized on mobile. */
     .container h3 {
-        font-size: 1.4rem !important; 
+        font-size: 1.2rem !important; 
     }
 
     #resultTable {
-        /* Use viewport width (vw) for dynamic font scaling on the table.
-           This helps maximize the data displayed without horizontal scrolling. */
-        font-size: 2vw; 
+        /* Dynamic font sizing */
+        font-size: 1.4vw; 
+        min-width: 100%; 
     }
     
+    /* CRITICAL FIX for 8-column table on mobile: */
     th, td {
-        /* Reduced padding for maximum space saving */
         padding: 4px 2px;
+        white-space: nowrap; /* Prevent text wrapping */
+        width: 1px;         /* Forces minimum necessary column width */
+    }
+
+    /* Footer text adjustment for small screens */
+    footer,
+    /* NEW RULE: Matches the table caption size to the footer size */
+    caption {
+        font-size: 0.9rem;
     }
 }

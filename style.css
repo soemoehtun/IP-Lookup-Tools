@@ -40,7 +40,7 @@ th, td {
 @media (max-width: 575.98px) {
     /* Reduce the base font size for ALL text elements */
     body {
-        font-size: 1.5vw;
+        font-size: 2vw; 
     }
     
     /* FIX: More specific selector to ensure header size is minimized on mobile. 
@@ -53,7 +53,7 @@ th, td {
     #resultTable {
         /* Use viewport width (vw) for dynamic font scaling on the table.
            This helps maximize the data displayed without horizontal scrolling. */
-        font-size: 1.5vw; 
+        font-size: 2vw; 
     }
     
     th, td {

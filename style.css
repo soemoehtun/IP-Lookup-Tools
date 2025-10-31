@@ -40,7 +40,7 @@ th, td {
 @media (max-width: 575.98px) {
     /* Reduce the base font size for ALL text elements */
     body {
-        font-size: 0.8rem; 
+        font-size: 1.5vw;
     }
     
     /* FIX: More specific selector to ensure header size is minimized on mobile. 

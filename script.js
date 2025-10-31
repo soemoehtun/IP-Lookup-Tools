@@ -116,7 +116,7 @@ lookupBtn.addEventListener("click", async () => {
         ipLookupResults.push(dataRow); // Store result for Excel export
 
         // Wait 1500ms (1.5 seconds) between each request for rate limit management
-        await delay(1500);
+        await delay(1000);
     }
 
     // 3. Cleanup: Reset button state

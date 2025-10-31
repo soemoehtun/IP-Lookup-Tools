@@ -131,4 +131,74 @@ th, td {
     .table-responsive {
         overflow-x: hidden;
     }
+}    /* Ensure the content is visible if it exceeds the fixed width (important for long ISP/Org names) */
+    word-break: break-word; 
+}
+
+/* ========================================================= */
+/* ===== MOBILE-SPECIFIC STYLES (Flip-Table/Card View) ===== */
+/* ========================================================= */
+
+/* Target screens up to 575.98px wide (Bootstrap's 'sm' breakpoint and below) */
+@media (max-width: 575.98px) {
+    /* Set a comfortable base font size for mobile */
+    body {
+        font-size: 0.9rem; 
+    }
+    
+    .container h3 {
+        font-size: 1.2rem !important; 
+    }
+
+    /* Match footer and caption size */
+    footer,
+    caption {
+        font-size: 0.9rem;
+    }
+    
+    /* 1. Hide the table header completely */
+    #resultTable thead {
+        display: none;
+    }
+
+    /* 2. Make each table row (<tr>) behave like a block (the card) */
+    #resultTable tr {
+        display: block;
+        margin-bottom: 0.625em; 
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    /* 3. Make each table data cell (<td>) behave like a block */
+    #resultTable td {
+        display: block;
+        text-align: right;
+        border: none;
+        padding: 0.5em 1em; 
+        position: relative;
+        /* Resetting width specific to mobile card view */
+        width: auto !important; 
+    }
+    
+    /* 4. Use the ::before pseudo-element to display the column header name */
+    #resultTable td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-align: left;
+        color: #333;
+    }
+    
+    /* Special styling for the IP address row to make it prominent */
+    #resultTable tr:first-child td:first-child {
+        font-weight: bold;
+        background-color: #f8f9fa; 
+        text-align: center;
+    }
+    
+    /* Prevent horizontal scrolling if the table is in card view */
+    .table-responsive {
+        overflow-x: hidden;
+    }
 }
